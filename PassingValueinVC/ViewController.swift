@@ -10,7 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
+    
+    @IBOutlet var textfield: UITextField!
+    @IBAction func submit(_ sender: Any) {
+        
+        performSegue(withIdentifier: "gotosecond", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let second = segue .destination as! ThirdViewController
+        second.outputtext = textfield.text!
+    }
+override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
